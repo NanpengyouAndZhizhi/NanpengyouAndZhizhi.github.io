@@ -120,7 +120,9 @@
   <entry>
     <title>一台电脑两个博客</title>
     <url>/posts/b8dd8dfe/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1>参考网址</h1>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>这个就是为了这个网站做的过程。</p>
+<span id="more"></span>
+<h1>参考网址</h1>
 <p><a href="https://zhuanlan.zhihu.com/p/69218641">https://zhuanlan.zhihu.com/p/69218641</a></p>
 <h1>新建一个 github 账号</h1>
 <h1>新建一个公钥</h1>
