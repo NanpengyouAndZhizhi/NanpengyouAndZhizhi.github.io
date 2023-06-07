@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>男朋友和只只的点滴</title>
+  
+  
+  <link href="http://yoursite.com/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2021-07-08T07:19:09.795Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>zhizhi</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>一台电脑两个博客</title>
+    <link href="http://yoursite.com/posts/b8dd8dfe/"/>
+    <id>http://yoursite.com/posts/b8dd8dfe/</id>
+    <published>2021-07-04T08:19:22.000Z</published>
+    <updated>2021-07-08T07:19:09.795Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;这个就是为了这个网站做的过程。&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>只只和男朋友</title>
+    <link href="http://yoursite.com/posts/ac7827ff/"/>
+    <id>http://yoursite.com/posts/ac7827ff/</id>
+    <published>2021-03-23T00:58:13.000Z</published>
+    <updated>2023-04-08T08:37:02.792Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;记录只只和男朋友的日常。&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
+  
+</feed>
