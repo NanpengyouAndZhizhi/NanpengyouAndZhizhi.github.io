@@ -1,83 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>一台电脑两个博客</title>
-    <url>/posts/b8dd8dfe/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>这个就是为了这个网站做的过程。</p>
-<span id="more"></span>
-<h1>参考网址</h1>
-<p><a href="https://zhuanlan.zhihu.com/p/69218641">https://zhuanlan.zhihu.com/p/69218641</a></p>
-<h1>新建一个 github 账号</h1>
-<h1>新建一个公钥</h1>
-<p><a href="https://zhuanlan.zhihu.com/p/69218641">https://zhuanlan.zhihu.com/p/69218641</a></p>
-<h2 id="查看当前密钥">查看当前密钥</h2>
-<p>首先我们打开终端输入<code>ls ~/.ssh/</code>可以查看当前已有的密钥，显示<code>id_rsa</code> 与 <code>id_rsa_pub</code>说明已经有一对密钥</p>
-<h2 id="创建新的密钥">创建新的密钥</h2>
-<p>首先使用以下命令进入 SSH根目录下：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">cd ~/.ssh/</span><br></pre></td></tr></table></figure>
-<p>我用的方法一</p>
-<h3 id="方法一">方法一</h3>
-<p>直接使用以下命令创建新密钥，然后两次回车即可：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -f  ~/.ssh/这里是新密钥名称 -C <span class="string">&quot;这里是你的邮箱&quot;</span></span><br></pre></td></tr></table></figure>
-<p>注意区别新密钥名称和旧密钥名称，不要相同！！！</p>
-<p>我的命令是</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -f ~/.ssh/zhizhi -C &quot;zhouzwzhizhi@163.com&quot;</span><br></pre></td></tr></table></figure>
-<p>查看目录下多了2个文件</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ ls</span><br><span class="line">id_rsa  id_rsa.pub  known_hosts  zhizhi  zhizhi.pub</span><br></pre></td></tr></table></figure>
-<h3 id="方法二">方法二</h3>
-<p>使用下面命令行创建新密钥：</p>
-<figure class="highlight mathematica"><table><tr><td class="code"><pre><span class="line"><span class="variable">ssh</span><span class="operator">-</span><span class="variable">keygen</span> <span class="operator">-</span><span class="variable">t</span> <span class="variable">rsa</span> <span class="operator">-</span><span class="built_in">C</span> <span class="string">&quot;这里是你的邮箱&quot;</span></span><br></pre></td></tr></table></figure>
-<p>回车后会出现：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Generating public/private rsa key pair.  </span><br><span class="line"> Enter file in which to save the key (/c/Users/you/.ssh/id_rsa):</span><br></pre></td></tr></table></figure>
-<p>注意此时需要你输入新密钥的名称，同样要注意区别新密钥名称和旧密钥名称，不要相同！！！之后再两次回车，新密钥创建完毕！</p>
-<h2 id="配置config">配置config</h2>
-<p>查看你的.ssh/根路径下, 有没有config文件,（ 比如我的路径为C:\Users\Lenovo.ssh）没有则使用以下命令创建一个config文件：</p>
-<figure class="highlight lsl"><table><tr><td class="code"><pre><span class="line"><span class="section">touch</span> config</span><br></pre></td></tr></table></figure>
-<p>用记事本或者其他工具打开config文件（注意config文件是没有任何后缀名的），写入以下配置：</p>
-<figure class="highlight crmsh"><table><tr><td class="code"><pre><span class="line"><span class="comment">#第一个账号，默认使用的账号，不用做任何更改</span></span><br><span class="line">Host github.com</span><br><span class="line">    HostName github.com</span><br><span class="line">    <span class="keyword">User</span> <span class="title">git</span></span><br><span class="line">    IdentityFile ~/.ssh/id_rsa</span><br><span class="line"></span><br><span class="line"><span class="comment">#第二个新账号，#&quot;xxxxxx&quot;为前缀名，可以任意设置，要记住，后面需要用到</span></span><br><span class="line">Host xxxxxx.github.com</span><br><span class="line">    HostName github.com</span><br><span class="line">    <span class="keyword">User</span> <span class="title">git</span></span><br><span class="line">    IdentityFile ~/.ssh/这里是你创建的新密钥的名称</span><br></pre></td></tr></table></figure>
-<p>实际配置如下，全用 zhizhi</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#第一个账号，默认使用的账号，不用做任何更改</span><br><span class="line">Host github.com</span><br><span class="line">    HostName github.com</span><br><span class="line">    User git</span><br><span class="line">    IdentityFile ~/.ssh/id_rsa</span><br><span class="line"></span><br><span class="line">#第二个新账号，#&quot;xxxxxx&quot;为前缀名，可以任意设置，要记住，后面需要用到</span><br><span class="line">Host zhizhi.github.com</span><br><span class="line">    HostName github.com</span><br><span class="line">    User git</span><br><span class="line">    IdentityFile ~/.ssh/zhizhi</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h2 id="设置新GitHub账户SSH-key">设置新GitHub账户SSH key</h2>
-<p>复制 .ssh 目录下 zhizhi.pub 的内容，然后打开你的新GitHub账号主页，依次进入Settings —&gt; SSH and GPG keys —&gt; New SSH key，将刚复制的内容粘贴到Key那里，Title可以随便填，点击Add Key保存。</p>
-<h2 id="清空本地的-SSH-缓存，添加新的-SSH-密钥-到-SSH-agent中">清空本地的 SSH 缓存，添加新的 SSH 密钥 到 SSH agent中</h2>
-<p>使用命令<code>cd ~/.ssh</code>cd到.ssh根目录下，依次执行以下命令：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">ssh-add -D</span><br><span class="line">ssh-add id_rsa #旧密钥名称，一般是id_rsa</span><br><span class="line">ssh-add zhizhi #新创建的密钥名称</span><br></pre></td></tr></table></figure>
-<p>如果执行以上命令出现错误：<code>Could not open a connection to your authentication agent.</code>，那么就需要先执行<code>ssh-agent bash</code>，再执行以上命令</p>
-<h2 id="验证配置是否成功">验证配置是否成功</h2>
-<p>依次执行以下命令，第一个为默认ssh_key验证；第二个为新的ssh_key验证，其中的前缀为你先前在config文件中的命名</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">ssh -T git@github.com</span><br><span class="line">ssh -T git@zhizhi.github.com</span><br></pre></td></tr></table></figure>
-<p>依次显示以下信息, 则说明配置成功：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br><span class="line">Hi VincereZhou! You&#x27;ve successfully authenticated, but GitHub does not provide shell access.</span><br><span class="line"></span><br><span class="line">$ ssh -T git@zhizhi.github.com</span><br><span class="line">Hi NanpengyouAndZhizhi! You&#x27;ve successfully authenticated, but GitHub does not provide shell access.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h2 id="取消全局用户名-邮箱配置，单独设置用户名-邮箱">取消全局用户名/邮箱配置，单独设置用户名/邮箱</h2>
-<p>执行如下命令，取消全局用户名和邮箱配置（如果已经设置了全局的话）：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">git config --global --unset user.name</span><br><span class="line">git config --global --unset user.email</span><br></pre></td></tr></table></figure>
-<p>分别进入你的两个Hexo博客.git目录下执行以下命令单独设置用户名/邮箱：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">git config user.name &quot;这里是用户名&quot;</span><br><span class="line">git config user.email &quot;这里是你的邮箱&quot;</span><br></pre></td></tr></table></figure>
-<p>我的命令如下</p>
-<p>先到  <code>D:\Desktop\blog\.deploy_git\.git</code> 目录下设置</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config user.email &quot;zhuanzhugongxian@sina.com&quot;</span><br><span class="line">git config user.name &quot;VincereZhou&quot;</span><br></pre></td></tr></table></figure>
-<p>再到 <code>D:\Desktop\blog_zhizhi\.deploy_git\.git</code> 目录下设置</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config user.email &quot;zhouzwzhizhi@163.com&quot;</span><br><span class="line">git config user.name &quot;NanpengyouAndZhizhi&quot;</span><br></pre></td></tr></table></figure>
-<p>如果此时报错：<code>fatal: not in a git directory</code>，说明你没有进入.git目录下，具体路径：\Hexo.deploy_git.git，.git目录是隐藏的，需要你设置隐藏目录可见</p>
-<p>执行以下命令可以查看设置是否成功</p>
-<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">config</span> <span class="comment">--list</span></span><br></pre></td></tr></table></figure>
-<p>例如在 <code>D:\Desktop\blog_zhizhi\.deploy_git\.git</code> 目录下输入，可以看到已经有了。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git config --list</span><br><span class="line">diff.astextplain.textconv=astextplain</span><br><span class="line">filter.lfs.clean=git-lfs clean -- %f</span><br><span class="line">filter.lfs.smudge=git-lfs smudge -- %f</span><br><span class="line">filter.lfs.process=git-lfs filter-process</span><br><span class="line">filter.lfs.required=true</span><br><span class="line">http.sslbackend=openssl</span><br><span class="line">http.sslcainfo=C:/Program Files/Git/mingw64/ssl/certs/ca-bundle.crt</span><br><span class="line">core.autocrlf=true</span><br><span class="line">core.fscache=true</span><br><span class="line">core.symlinks=false</span><br><span class="line">pull.rebase=false</span><br><span class="line">credential.helper=manager-core</span><br><span class="line">credential.https://dev.azure.com.usehttppath=true</span><br><span class="line">gui.encoding=utf-8</span><br><span class="line">i18n.commitencoding=utf-8</span><br><span class="line">svn.pathnameencoding=utf-8</span><br><span class="line">core.repositoryformatversion=0</span><br><span class="line">core.filemode=false</span><br><span class="line">core.bare=false</span><br><span class="line">core.logallrefupdates=true</span><br><span class="line">core.symlinks=false</span><br><span class="line">core.ignorecase=true</span><br><span class="line">user.email=zhouzwzhizhi@163.com</span><br><span class="line">user.name=NanpengyouAndZhizhi</span><br><span class="line">(END)</span><br></pre></td></tr></table></figure>
-<h2 id="hexo-配置文件修改git地址">hexo 配置文件修改git地址</h2>
-<p>打开你的第二个博客Hexo目录下的_config.yml文件，找到deploy关键字，写入以下配置并保存：(就是相比于正常配置多了一个 <a href="http://zhizhi.github.com">zhizhi.github.com</a> 的 zhizhi)</p>
-<figure class="highlight less"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  # repo: https://github.com/VincereZhou/VincereZhou.github.io.git</span><br><span class="line">  repo: git@zhizhi.github.com:NanpengyouAndZhizhi/NanpengyouAndZhizhi.github.io.git</span><br><span class="line">  branch: master</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h1>中文域名部署到github</h1>
-<h3 id="中文域名">中文域名</h3>
-<p><a href="https://www.jianshu.com/p/ce95f34f8821">https://www.jianshu.com/p/ce95f34f8821</a></p>
-<p>中文域名需要先转换成<strong>Punycode标准编码的字符串</strong></p>
-<p>进行转换的网址如下：</p>
-<p><a href="http://www.webmasterhome.cn/tool/punycode.asp">http://www.webmasterhome.cn/tool/punycode.asp</a></p>
-<p>举个例子，假设有个域名是 <code>栗子.网络 </code> ，转换关系如下。<br>
-<code>栗子.网络</code>------&gt;&gt;<code>xn--i8s301a.xn--io0a7i</code></p>
-<p>之后你就可以将这个 <code>xn--i8s301a.xn--io0a7i </code> 文件夹黏贴到本地的 CNAME 文件夹 和 github 仓库配置中。</p>
-]]></content>
-  </entry>
-  <entry>
     <title>只只和男朋友</title>
     <url>/posts/ac7827ff/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>记录只只和男朋友的日常。</p>
@@ -234,6 +157,83 @@
 <p>去了西单，故宫，颐和园。</p>
 <p><img src="beijing1.jpg" alt=""></p>
 <p><img src="beijing2.jpg" alt=""></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>一台电脑两个博客</title>
+    <url>/posts/b8dd8dfe/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>这个就是为了这个网站做的过程。</p>
+<span id="more"></span>
+<h1>参考网址</h1>
+<p><a href="https://zhuanlan.zhihu.com/p/69218641">https://zhuanlan.zhihu.com/p/69218641</a></p>
+<h1>新建一个 github 账号</h1>
+<h1>新建一个公钥</h1>
+<p><a href="https://zhuanlan.zhihu.com/p/69218641">https://zhuanlan.zhihu.com/p/69218641</a></p>
+<h2 id="查看当前密钥">查看当前密钥</h2>
+<p>首先我们打开终端输入<code>ls ~/.ssh/</code>可以查看当前已有的密钥，显示<code>id_rsa</code> 与 <code>id_rsa_pub</code>说明已经有一对密钥</p>
+<h2 id="创建新的密钥">创建新的密钥</h2>
+<p>首先使用以下命令进入 SSH根目录下：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">cd ~/.ssh/</span><br></pre></td></tr></table></figure>
+<p>我用的方法一</p>
+<h3 id="方法一">方法一</h3>
+<p>直接使用以下命令创建新密钥，然后两次回车即可：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -f  ~/.ssh/这里是新密钥名称 -C <span class="string">&quot;这里是你的邮箱&quot;</span></span><br></pre></td></tr></table></figure>
+<p>注意区别新密钥名称和旧密钥名称，不要相同！！！</p>
+<p>我的命令是</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -f ~/.ssh/zhizhi -C &quot;zhouzwzhizhi@163.com&quot;</span><br></pre></td></tr></table></figure>
+<p>查看目录下多了2个文件</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ ls</span><br><span class="line">id_rsa  id_rsa.pub  known_hosts  zhizhi  zhizhi.pub</span><br></pre></td></tr></table></figure>
+<h3 id="方法二">方法二</h3>
+<p>使用下面命令行创建新密钥：</p>
+<figure class="highlight mathematica"><table><tr><td class="code"><pre><span class="line"><span class="variable">ssh</span><span class="operator">-</span><span class="variable">keygen</span> <span class="operator">-</span><span class="variable">t</span> <span class="variable">rsa</span> <span class="operator">-</span><span class="built_in">C</span> <span class="string">&quot;这里是你的邮箱&quot;</span></span><br></pre></td></tr></table></figure>
+<p>回车后会出现：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Generating public/private rsa key pair.  </span><br><span class="line"> Enter file in which to save the key (/c/Users/you/.ssh/id_rsa):</span><br></pre></td></tr></table></figure>
+<p>注意此时需要你输入新密钥的名称，同样要注意区别新密钥名称和旧密钥名称，不要相同！！！之后再两次回车，新密钥创建完毕！</p>
+<h2 id="配置config">配置config</h2>
+<p>查看你的.ssh/根路径下, 有没有config文件,（ 比如我的路径为C:\Users\Lenovo.ssh）没有则使用以下命令创建一个config文件：</p>
+<figure class="highlight lsl"><table><tr><td class="code"><pre><span class="line"><span class="section">touch</span> config</span><br></pre></td></tr></table></figure>
+<p>用记事本或者其他工具打开config文件（注意config文件是没有任何后缀名的），写入以下配置：</p>
+<figure class="highlight crmsh"><table><tr><td class="code"><pre><span class="line"><span class="comment">#第一个账号，默认使用的账号，不用做任何更改</span></span><br><span class="line">Host github.com</span><br><span class="line">    HostName github.com</span><br><span class="line">    <span class="keyword">User</span> <span class="title">git</span></span><br><span class="line">    IdentityFile ~/.ssh/id_rsa</span><br><span class="line"></span><br><span class="line"><span class="comment">#第二个新账号，#&quot;xxxxxx&quot;为前缀名，可以任意设置，要记住，后面需要用到</span></span><br><span class="line">Host xxxxxx.github.com</span><br><span class="line">    HostName github.com</span><br><span class="line">    <span class="keyword">User</span> <span class="title">git</span></span><br><span class="line">    IdentityFile ~/.ssh/这里是你创建的新密钥的名称</span><br></pre></td></tr></table></figure>
+<p>实际配置如下，全用 zhizhi</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#第一个账号，默认使用的账号，不用做任何更改</span><br><span class="line">Host github.com</span><br><span class="line">    HostName github.com</span><br><span class="line">    User git</span><br><span class="line">    IdentityFile ~/.ssh/id_rsa</span><br><span class="line"></span><br><span class="line">#第二个新账号，#&quot;xxxxxx&quot;为前缀名，可以任意设置，要记住，后面需要用到</span><br><span class="line">Host zhizhi.github.com</span><br><span class="line">    HostName github.com</span><br><span class="line">    User git</span><br><span class="line">    IdentityFile ~/.ssh/zhizhi</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="设置新GitHub账户SSH-key">设置新GitHub账户SSH key</h2>
+<p>复制 .ssh 目录下 zhizhi.pub 的内容，然后打开你的新GitHub账号主页，依次进入Settings —&gt; SSH and GPG keys —&gt; New SSH key，将刚复制的内容粘贴到Key那里，Title可以随便填，点击Add Key保存。</p>
+<h2 id="清空本地的-SSH-缓存，添加新的-SSH-密钥-到-SSH-agent中">清空本地的 SSH 缓存，添加新的 SSH 密钥 到 SSH agent中</h2>
+<p>使用命令<code>cd ~/.ssh</code>cd到.ssh根目录下，依次执行以下命令：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">ssh-add -D</span><br><span class="line">ssh-add id_rsa #旧密钥名称，一般是id_rsa</span><br><span class="line">ssh-add zhizhi #新创建的密钥名称</span><br></pre></td></tr></table></figure>
+<p>如果执行以上命令出现错误：<code>Could not open a connection to your authentication agent.</code>，那么就需要先执行<code>ssh-agent bash</code>，再执行以上命令</p>
+<h2 id="验证配置是否成功">验证配置是否成功</h2>
+<p>依次执行以下命令，第一个为默认ssh_key验证；第二个为新的ssh_key验证，其中的前缀为你先前在config文件中的命名</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">ssh -T git@github.com</span><br><span class="line">ssh -T git@zhizhi.github.com</span><br></pre></td></tr></table></figure>
+<p>依次显示以下信息, 则说明配置成功：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br><span class="line">Hi VincereZhou! You&#x27;ve successfully authenticated, but GitHub does not provide shell access.</span><br><span class="line"></span><br><span class="line">$ ssh -T git@zhizhi.github.com</span><br><span class="line">Hi NanpengyouAndZhizhi! You&#x27;ve successfully authenticated, but GitHub does not provide shell access.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="取消全局用户名-邮箱配置，单独设置用户名-邮箱">取消全局用户名/邮箱配置，单独设置用户名/邮箱</h2>
+<p>执行如下命令，取消全局用户名和邮箱配置（如果已经设置了全局的话）：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">git config --global --unset user.name</span><br><span class="line">git config --global --unset user.email</span><br></pre></td></tr></table></figure>
+<p>分别进入你的两个Hexo博客.git目录下执行以下命令单独设置用户名/邮箱：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">git config user.name &quot;这里是用户名&quot;</span><br><span class="line">git config user.email &quot;这里是你的邮箱&quot;</span><br></pre></td></tr></table></figure>
+<p>我的命令如下</p>
+<p>先到  <code>D:\Desktop\blog\.deploy_git\.git</code> 目录下设置</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config user.email &quot;zhuanzhugongxian@sina.com&quot;</span><br><span class="line">git config user.name &quot;VincereZhou&quot;</span><br></pre></td></tr></table></figure>
+<p>再到 <code>D:\Desktop\blog_zhizhi\.deploy_git\.git</code> 目录下设置</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config user.email &quot;zhouzwzhizhi@163.com&quot;</span><br><span class="line">git config user.name &quot;NanpengyouAndZhizhi&quot;</span><br></pre></td></tr></table></figure>
+<p>如果此时报错：<code>fatal: not in a git directory</code>，说明你没有进入.git目录下，具体路径：\Hexo.deploy_git.git，.git目录是隐藏的，需要你设置隐藏目录可见</p>
+<p>执行以下命令可以查看设置是否成功</p>
+<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">config</span> <span class="comment">--list</span></span><br></pre></td></tr></table></figure>
+<p>例如在 <code>D:\Desktop\blog_zhizhi\.deploy_git\.git</code> 目录下输入，可以看到已经有了。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git config --list</span><br><span class="line">diff.astextplain.textconv=astextplain</span><br><span class="line">filter.lfs.clean=git-lfs clean -- %f</span><br><span class="line">filter.lfs.smudge=git-lfs smudge -- %f</span><br><span class="line">filter.lfs.process=git-lfs filter-process</span><br><span class="line">filter.lfs.required=true</span><br><span class="line">http.sslbackend=openssl</span><br><span class="line">http.sslcainfo=C:/Program Files/Git/mingw64/ssl/certs/ca-bundle.crt</span><br><span class="line">core.autocrlf=true</span><br><span class="line">core.fscache=true</span><br><span class="line">core.symlinks=false</span><br><span class="line">pull.rebase=false</span><br><span class="line">credential.helper=manager-core</span><br><span class="line">credential.https://dev.azure.com.usehttppath=true</span><br><span class="line">gui.encoding=utf-8</span><br><span class="line">i18n.commitencoding=utf-8</span><br><span class="line">svn.pathnameencoding=utf-8</span><br><span class="line">core.repositoryformatversion=0</span><br><span class="line">core.filemode=false</span><br><span class="line">core.bare=false</span><br><span class="line">core.logallrefupdates=true</span><br><span class="line">core.symlinks=false</span><br><span class="line">core.ignorecase=true</span><br><span class="line">user.email=zhouzwzhizhi@163.com</span><br><span class="line">user.name=NanpengyouAndZhizhi</span><br><span class="line">(END)</span><br></pre></td></tr></table></figure>
+<h2 id="hexo-配置文件修改git地址">hexo 配置文件修改git地址</h2>
+<p>打开你的第二个博客Hexo目录下的_config.yml文件，找到deploy关键字，写入以下配置并保存：(就是相比于正常配置多了一个 <a href="http://zhizhi.github.com">zhizhi.github.com</a> 的 zhizhi)</p>
+<figure class="highlight less"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  # repo: https://github.com/VincereZhou/VincereZhou.github.io.git</span><br><span class="line">  repo: git@zhizhi.github.com:NanpengyouAndZhizhi/NanpengyouAndZhizhi.github.io.git</span><br><span class="line">  branch: master</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1>中文域名部署到github</h1>
+<h3 id="中文域名">中文域名</h3>
+<p><a href="https://www.jianshu.com/p/ce95f34f8821">https://www.jianshu.com/p/ce95f34f8821</a></p>
+<p>中文域名需要先转换成<strong>Punycode标准编码的字符串</strong></p>
+<p>进行转换的网址如下：</p>
+<p><a href="http://www.webmasterhome.cn/tool/punycode.asp">http://www.webmasterhome.cn/tool/punycode.asp</a></p>
+<p>举个例子，假设有个域名是 <code>栗子.网络 </code> ，转换关系如下。<br>
+<code>栗子.网络</code>------&gt;&gt;<code>xn--i8s301a.xn--io0a7i</code></p>
+<p>之后你就可以将这个 <code>xn--i8s301a.xn--io0a7i </code> 文件夹黏贴到本地的 CNAME 文件夹 和 github 仓库配置中。</p>
 ]]></content>
   </entry>
 </search>
